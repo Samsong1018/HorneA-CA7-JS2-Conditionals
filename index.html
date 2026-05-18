@@ -5,36 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Amos Horne">
     <title>Bear Ninja Hunter</title>
-    <style>
-        body {
-            background-color: lightblue;
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        h1 {
-            color: darkblue;
-            text-align: center;
-        }
-
-        p {
-            font-size: 18px;
-            margin: 10px;
-        }
-
-        #player-choice-display {
-            color: green;
-        }
-
-        #computer-choice-display {
-            color: green;
-        }
-
-        #winner-display {
-            color: darkred;
-            font-weight: bold;
-        }
-    </style>
 </head>
 <body>
 
@@ -58,8 +28,8 @@
         const computerChoice = 'Bear';
 
         // Build the display strings for player and computer choices
-        let playerResult = playerName + ' chose ' + playerChoice;
-        let computerResult = 'The computer chose ' + computerChoice;
+        let playerResult = playerName + ', You picked ' + playerChoice + '!';
+        let computerResult = 'The computer picked ' + computerChoice + '!';
 
         // Variable to hold the winner announcement message
         let winnerMessage;
