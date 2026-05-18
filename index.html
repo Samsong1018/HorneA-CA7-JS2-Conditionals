@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Amos Horne">
+    <title>Bear Ninja Hunter</title>
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: darkblue;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        #player-choice-display {
+            color: green;
+        }
+
+        #computer-choice-display {
+            color: green;
+        }
+
+        #winner-display {
+            color: darkred;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bear Ninja Hunter</h1>
+
+    <p id="player-choice-display">Waiting for player...</p>
+    <p id="computer-choice-display">Waiting for computer...</p>
+    <p id="winner-display"></p>
+
+    <script>
+        // Collect the player's name via prompt
+        let playerName = prompt('Welcome to Bear Hunter Ninja! Please enter your name to get started: ');
+
+        // Greet the player with their name
+        alert('Hi ' + playerName + ' Let\'s play!');
+
+        // Collect the player's choice via prompt
+        let playerChoice = prompt('Who are you: Bear, Ninja, or Hunter? ');
+
+        // Computer choice is hard-coded to Bear for this phase of the game
+        const computerChoice = 'Bear';
+
+        // Build the display strings for player and computer choices
+        let playerResult = playerName + ' chose ' + playerChoice;
+        let computerResult = 'The computer chose ' + computerChoice;
+
+        // Variable to hold the winner announcement message
+        let winnerMessage;
+
+        // Use a switch to evaluate the computer's choice.
+        // This prepares the code for when the computer plays any of the three options.
+        switch (computerChoice) {
+
+            case 'Bear':
+                // Use if/else if/else to compare player choice against Bear
+                if (playerChoice === 'Bear') {
+                    winnerMessage = "It's a tie!";
+                } else if (playerChoice === 'Ninja') {
+                    // Bear beats Ninja
+                    winnerMessage = 'You lose.';
+                } else if (playerChoice === 'Hunter') {
+                    // Hunter beats Bear
+                    winnerMessage = 'You win!!';
+                }
+                break;
+
+            case 'Ninja':
+                // Use if/else if/else to compare player choice against Ninja
+                if (playerChoice === 'Bear') {
+                    // Bear beats Ninja
+                    winnerMessage = 'You win!!';
+                } else if (playerChoice === 'Ninja') {
+                    winnerMessage = "It's a tie!";
+                } else if (playerChoice === 'Hunter') {
+                    // Ninja beats Hunter
+                    winnerMessage = 'You lose.';
+                }
+                break;
+
+            case 'Hunter':
+                // Use if/else if/else to compare player choice against Hunter
+                if (playerChoice === 'Bear') {
+                    // Hunter beats Bear
+                    winnerMessage = 'You lose.';
+                } else if (playerChoice === 'Ninja') {
+                    // Ninja beats Hunter
+                    winnerMessage = 'You win!!';
+                } else if (playerChoice === 'Hunter') {
+                    winnerMessage = "It's a tie!";
+                }
+                break;
+        }
+
+        // Write the player choice, computer choice, and winner to the HTML page
+        document.getElementById('player-choice-display').innerHTML = playerResult;
+        document.getElementById('computer-choice-display').innerHTML = computerResult;
+        document.getElementById('winner-display').innerHTML = winnerMessage;
+
+        // Also output all three results to the console
+        console.log(playerResult);
+        console.log(computerResult);
+        console.log(winnerMessage);
+    </script>
+
+</body>
+</html>
